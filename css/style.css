@@ -1,61 +1,95 @@
-
 @font-face {
-    font-family: 'STARWARS';
-    src: url('../fuentes/STARWARS.ttf');
-    font-style: normal;
-    font-weight: bolder;
-  }
-
-*{
-    padding: 0;
-    margin: 0;
-    font-family: "STARWARS";
+  font-family: "STARWARS";
+  src: url("../fuentes/STARWARS.ttf");
+  font-style: normal;
+  font-weight: bolder;
 }
 
-
-
-body{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-image: url("../img/bg.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "STARWARS";
 }
 
-.contenedor{
-    width: 60%;
-    display: flex;
-    flex-direction: row;
+body {
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-image: url("../img/bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-a{
-    margin: 10px;
-    width: 100%;
-    border-radius: 20px;
-    text-decoration: none;
-    background-image: url("../img/card_bg.jpg");
+.contenedor {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
 }
 
-h3{
-    width: 100%;
-    margin: 25px 0;
-    color: orange;
-    text-align: center;
-    font-size: x-large;
-    justify-content: center;
+a {
+  width: 100%;
+  border-radius: 20px;
+  text-decoration: none;
+  background-image: url("../img/card_bg.jpg");
+  box-shadow: 0 0 20px #cfc235;
+  transition: 0.5s all ease-in-out;
 }
 
-img{
-    margin: 10px 30px;
-    margin-bottom: 30px;
-    width: 200px;
-    height: 325px;
-    border-radius: 10px;
-    box-shadow: 10px 10px 0px #b0b0b0c4;
+a:nth-child(1) {
+  transform: rotate(-45deg) translateX(100px) translateY(250px);
+}
+a:nth-child(2) {
+  transform: rotate(-20deg) translateX(50px) translateY(75px);
+}
+a:nth-child(3) {
+  transform: rotate(0deg) translateX(0px) translateY(0px);
+}
+a:nth-child(4) {
+  transform: rotate(20deg) translateX(-50px) translateY(75px);
+}
+a:nth-child(5) {
+  transform: rotate(45deg) translateX(-100px) translateY(250px);
 }
 
+a:nth-child(1):hover {
+  z-index: 10;
+  transform: rotate(-20deg) translateX(100px) translateY(100px);
+}
+a:nth-child(2):hover {
+  z-index: 10;
+  transform: rotate(-10deg) translateX(100px) translateY(0px);
+}
+a:nth-child(3):hover {
+  z-index: 10;
+  transform: rotate(0deg) translateX(0px) translateY(-20px);
+}
+a:nth-child(4):hover {
+  z-index: 10;
+  transform: rotate(10deg) translateX(-100px) translateY(0px);
+}
+a:nth-child(5):hover {
+  z-index: 10;
+  transform: rotate(20deg) translateX(-100px) translateY(100px);
+}
+
+h3 {
+  width: 100%;
+  margin: 25px 0;
+  color: orange;
+  text-align: center;
+  font-size: x-large;
+  justify-content: center;
+}
+
+img {
+  margin: 10px 30px;
+  margin-bottom: 30px;
+  width: 200px;
+  height: 325px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 0px #b0b0b0c4;
+}
