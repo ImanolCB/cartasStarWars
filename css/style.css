@@ -17,11 +17,23 @@ body {
   margin: auto;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
   background-image: url("../img/bg.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  transition: 1.5s all ease-in-out;
+}
+
+h1{
+  font-size: 100px;
+  color: orange;
+  margin-top: 5%;
+}
+
+p{
+  color: orange;
 }
 
 .contenedor {
@@ -35,8 +47,13 @@ a {
   border-radius: 20px;
   text-decoration: none;
   background-image: url("../img/card_bg.jpg");
-  box-shadow: 0 0 20px #cfc235;
-  transition: 0.5s all ease-in-out;
+  transition: 0.7s all ease-in-out;
+  animation: shadow 5s infinite;
+}
+
+@keyframes shadow{
+  0%,100%{box-shadow: 0 0 10px #cfb035;}
+  50%{ box-shadow: 0 0 40px #cfb035;}
 }
 
 a:nth-child(1) {
