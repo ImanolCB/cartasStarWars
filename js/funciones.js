@@ -5,23 +5,9 @@
  * https://swapi.dev/api/people/?search=${nombre}&format=json
  */
 
-/**
- * ? Callback
- */
-
-//Funcion callback que al llamarla realiza otra función asincrona.
-// Trás obtener el resultado de la consulta se retornará el resultado con el estado
-// function getPj(callback, pj) {
-//   $.get(`https://swapi.dev/api/people/`, function (data, status) {
-//     let info = data.results[pj];
-//     callback(info);
-//   });
-// }
-// getPj(function (personaje) {
-//   console.log(personaje);
-// }, 0);
 
 function getPj(pj) {
+  console.log("Entro" + pj);
   // Realiza la solicitud GET a la API
   return $.get(
     `https://swapi.dev/api/people/?search=${pj}&format=json`,
@@ -42,21 +28,22 @@ function mostrarInfo(inf) {
     // Comprobacion del tipo de dato que contiene cada caracteristica, si es de tipo array se hará otra consulta
     // console.log(Array.isArray(datoPersonaje[caracteristica])|| (datoPersonaje[caracteristica]).includes("https"));
     if (Array.isArray(caracteristica[datoPersonaje]) || (caracteristica[datoPersonaje]).includes("https")) {
-      console.log("Es array");
+      console.log("GESTIONAR OTRO FETCH");
     }
 
-    //Si el 
-    else{
+    //Si el contenido del tipo de dato no contiene un http entonces se creará la estructura de datos 
+    else {
       let datosPj = $("<p>").text(datoPersonaje + ": " + caracteristica[datoPersonaje]);
       datosPj.appendTo(div);
-
     }
   }
-    div.appendTo("body");
-  };
+
+  let parrafo = document.getElementById("parrafo");
+  div.appendTo(parrafo);
+};
+
+// getPj("Yoda")
 
 
-// Llama a la función getPj con el índice del personaje que quieres obtener
-getPj("Yoda");
 
 export { getPj, mostrarInfo };

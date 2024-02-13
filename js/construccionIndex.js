@@ -17,7 +17,6 @@ $(document).ready(function () {
     let imagenCarta = document.createElement("img");
 
     //Asignación de datos a qcada etiqueta
-    enlace.href = `../html/informacion.html`;
     enlace.id = i;
     tituloCarta.textContent = nombres[i - 1];
     imagenCarta.src = `../img/${i}.jpeg`;
@@ -30,5 +29,11 @@ $(document).ready(function () {
   //Aplicación de la estructura creada al body del index
   document.body.appendChild(div);
 
+
+  $("a").click(function () {
+    let personajeSeleccionado = $(this).text();
+    console.log(personajeSeleccionado);
+    window.location.href = `informacion.html?parametro=${encodeURIComponent(personajeSeleccionado)}`;
+  });
 
 });
