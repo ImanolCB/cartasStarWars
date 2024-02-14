@@ -1,7 +1,5 @@
 "use strict";
 
-import * as PJ from "./funciones.js";
-
 $(document).ready(function () {
   //Array que almacena los nombres de los personajes
   const nombres = ["Chewbacca", "Darth Vader", "R2-D2", "C-3PO", "Yoda"];
@@ -29,7 +27,7 @@ $(document).ready(function () {
   //Aplicación de la estructura creada al body del index
   document.body.appendChild(div);
 
-
+  //Funcion on click que detecta la carta sobre la que se hace click y recoge el valor de texto almacenado en la carta para consultar
   $("a").click(function () {
     let personajeSeleccionado = $(this).text();
     console.log(personajeSeleccionado);

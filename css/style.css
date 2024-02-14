@@ -56,6 +56,24 @@ p{
 .caracteristicas p{
   font-size: larger;
   margin: 0.95rem 0;
+  animation: scale 8s infinite;
+}
+
+.caracteristicas p:nth-child(1){animation-delay: 0;}
+.caracteristicas p:nth-child(2){animation-delay:1s ;}
+.caracteristicas p:nth-child(3){animation-delay:1.5s ;}
+.caracteristicas p:nth-child(4){animation-delay:2s ;}
+.caracteristicas p:nth-child(5){animation-delay:2.5s ;}
+.caracteristicas p:nth-child(6){animation-delay:3s ;}
+.caracteristicas p:nth-child(7){animation-delay:3.5s ;}
+.caracteristicas p:nth-child(8){animation-delay:4s ;}
+.caracteristicas p:nth-child(9){animation-delay:4.5s ;}
+.caracteristicas p:nth-child(10){animation-delay:5s ;}
+.caracteristicas p:nth-child(11){animation-delay:5.5s ;}
+
+@keyframes scale{
+  0%,100%{transform: scale(1);}
+  50%{ transform: scale(1.2)}
 }
 
 a {

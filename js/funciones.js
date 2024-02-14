@@ -1,13 +1,11 @@
 "use strict";
 
 /**
- * ? Página para consultar los personajes https://swapi.dev/api/people/ --> Como opción añadir al value de cada card la url de cada PJ
- * https://swapi.dev/api/people/?search=${nombre}&format=json
+ * 
+ * @param {*} pj 
+ * @returns Devuelve la estructura html con los datos de cada personaje
  */
-
-
 function getPj(pj) {
-  console.log("Entro" + pj);
   // Realiza la solicitud GET a la API
   return $.get(
     `https://swapi.dev/api/people/?search=${pj}&format=json`,
@@ -17,6 +15,10 @@ function getPj(pj) {
   );
 }
 
+/**
+ * 
+ * @param {*} inf Parametro con el json del personaje encontrado
+ */
 function mostrarInfo(inf) {
   let div = $("<div>").addClass("caracteristicas");
   let caracteristica = inf.results[0];
@@ -27,8 +29,31 @@ function mostrarInfo(inf) {
 
     // Comprobacion del tipo de dato que contiene cada caracteristica, si es de tipo array se hará otra consulta
     // console.log(Array.isArray(datoPersonaje[caracteristica])|| (datoPersonaje[caracteristica]).includes("https"));
-    if (Array.isArray(caracteristica[datoPersonaje]) || (caracteristica[datoPersonaje]).includes("https")) {
-      console.log("GESTIONAR OTRO FETCH");
+    if ((Array.isArray(caracteristica[datoPersonaje]) || (caracteristica[datoPersonaje]).includes("https"))) {
+
+      //Por cada tipo de dato correspondiente a los siguientes buscara el nombre de esa caracteristica
+      switch (datoPersonaje) {
+        case "homeworld", "vehicles", "starships":
+          $.get(`${caracteristica[datoPersonaje]}`,
+            function (data, status) {
+              let datosPj = $("<p>").text(datoPersonaje + ": " + data.name);
+              datosPj.appendTo(div);
+            }
+          );
+          break;
+
+        case "film":
+          $.get(`${caracteristica[datoPersonaje]}`,
+            function (data, status) {
+              let datosPj = $("<p>").text(datoPersonaje + ": " + data.title);
+              datosPj.appendTo(div);
+            }
+          );
+          break;
+
+        default:
+          break;
+      }
     }
 
     //Si el contenido del tipo de dato no contiene un http entonces se creará la estructura de datos 
@@ -41,9 +66,6 @@ function mostrarInfo(inf) {
   let parrafo = document.getElementById("parrafo");
   div.appendTo(parrafo);
 };
-
-// getPj("Yoda")
-
 
 
 export { getPj, mostrarInfo };
