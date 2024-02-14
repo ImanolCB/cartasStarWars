@@ -27,6 +27,8 @@ body {
 }
 
 h1{
+  width: 100%;
+  text-align: center;
   font-size: 80px;
   color: orange;
   margin-top: 5%;
@@ -70,6 +72,11 @@ p{
 .caracteristicas p:nth-child(9){animation-delay:4.5s ;}
 .caracteristicas p:nth-child(10){animation-delay:5s ;}
 .caracteristicas p:nth-child(11){animation-delay:5.5s ;}
+.caracteristicas p:nth-child(12){animation-delay:6s ;}
+.caracteristicas p:nth-child(13){animation-delay:6.5s ;}
+.caracteristicas p:nth-child(14){animation-delay:7s ;}
+.caracteristicas p:nth-child(15){animation-delay:7.5s ;}
+.caracteristicas p:nth-child(16){animation-delay:8s ;}
 
 @keyframes scale{
   0%,100%{transform: scale(1);}
@@ -144,4 +151,47 @@ img {
   height: 250px;
   border-radius: 10px;
   box-shadow: 10px 10px 0px #858585c4;
+}
+
+@media only screen and (max-width: 767px) {
+  
+  body{
+    overflow: scroll;
+    background-repeat: repeat;
+  }
+  .contenedor{
+    flex-direction: column;
+  }
+
+  a:nth-child(1) {
+    transform: rotate(5deg) translateX(0px) translateY(0px);
+  }
+  a:nth-child(2) {
+    transform: rotate(-5deg) translateX(0px) translateY(-200px);
+  }
+  a:nth-child(3) {
+    transform: rotate(5deg) translateX(0px) translateY(-400px);
+  }
+  a:nth-child(4) {
+    transform: rotate(-5deg) translateX(0px) translateY(-600px);
+  }
+  a:nth-child(5) {
+    transform: rotate(5deg) translateX(0px) translateY(-800px);
+  }
+
+  a:nth-child(1):hover {
+    transform: rotate(0deg) translateX(0px) translateY(20px);
+  }
+  a:nth-child(2):hover {
+    transform: rotate(0deg) translateX(0px) translateY(-220px);
+  }
+  a:nth-child(3):hover {
+    transform: rotate(0deg) translateX(0px) translateY(-420px);
+  }
+  a:nth-child(4):hover {
+    transform: rotate(0deg) translateX(0px) translateY(-620px);
+  }
+  a:nth-child(5):hover {
+    transform: rotate(0deg) translateX(-0px) translateY(-820px);
+  }
 }

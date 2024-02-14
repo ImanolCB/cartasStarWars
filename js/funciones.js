@@ -22,21 +22,43 @@ function getPj(pj) {
 function mostrarInfo(inf) {
   let div = $("<div>").addClass("caracteristicas");
   let caracteristica = inf.results[0];
-  console.log(inf.results[0]);
-
+  // console.log(inf.results[0]);
   //Recorre cada caracteristica contenida en el tipo de dato del personaje
+  let datosPj;
   for (const datoPersonaje in caracteristica) {
 
     // Comprobacion del tipo de dato que contiene cada caracteristica, si es de tipo array se hará otra consulta
     // console.log(Array.isArray(datoPersonaje[caracteristica])|| (datoPersonaje[caracteristica]).includes("https"));
     if ((Array.isArray(caracteristica[datoPersonaje]) || (caracteristica[datoPersonaje]).includes("https"))) {
-
       //Por cada tipo de dato correspondiente a los siguientes buscara el nombre de esa caracteristica
       switch (datoPersonaje) {
-        case "homeworld", "vehicles", "starships":
+        case "homeworld":
           $.get(`${caracteristica[datoPersonaje]}`,
             function (data, status) {
-              let datosPj = $("<p>").text(datoPersonaje + ": " + data.name);
+              datosPj = $("<p>").append(datoPersonaje + ": " + data.name);
+              datosPj.appendTo(div);
+            }
+          );
+          break;
+        case "starships":
+            //Recorre cada uno de las naves espaciales y las pinta
+          (caracteristica[datoPersonaje]).forEach(element => {
+            console.log(element);
+            $.get(`${element}`,
+            function (data, status) {
+              datosPj = $("<p>").append(datoPersonaje + ": " + data.name);
+              datosPj.appendTo(div);
+              console.log(data.name);
+            });
+          }); 
+
+           
+          
+          break;
+        case "vehicles":
+          $.get(`${caracteristica[datoPersonaje]}`,
+            function (data, status) {
+              datosPj = $("<p>").append(datoPersonaje + ": " + data.name);
               datosPj.appendTo(div);
             }
           );
@@ -45,7 +67,7 @@ function mostrarInfo(inf) {
         case "film":
           $.get(`${caracteristica[datoPersonaje]}`,
             function (data, status) {
-              let datosPj = $("<p>").text(datoPersonaje + ": " + data.title);
+              datosPj = $("<p>").append(datoPersonaje + ": " + data.title);
               datosPj.appendTo(div);
             }
           );
@@ -54,16 +76,19 @@ function mostrarInfo(inf) {
         default:
           break;
       }
+
     }
 
-    //Si el contenido del tipo de dato no contiene un http entonces se creará la estructura de datos 
+    //Si el contenido del tipo de dato no contiene un http entonces se creará la estructura de datos con las caracteristicas
     else {
-      let datosPj = $("<p>").text(datoPersonaje + ": " + caracteristica[datoPersonaje]);
+      datosPj = $("<p>").append(datoPersonaje + ": " + caracteristica[datoPersonaje]);
       datosPj.appendTo(div);
-    }
-  }
 
-  let parrafo = document.getElementById("parrafo");
+    }
+
+  }
+  //Se añade la informacion completa de los datos al div
+  let parrafo = $("#parrafo");
   div.appendTo(parrafo);
 };
 
