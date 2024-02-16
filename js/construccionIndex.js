@@ -17,7 +17,7 @@ $(document).ready(function () {
     //Asignación de datos a qcada etiqueta
     enlace.attr("id", i);
     tituloCarta.text(nombres[i - 1]);
-    imagenCarta.attr("src", `../img/${i}.jpeg`);
+    imagenCarta.attr("src", `img/${i}.jpeg`);
 
     //Estructura de elementos creados
     enlace.append(tituloCarta);
