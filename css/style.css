@@ -19,10 +19,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("../img/bg.png");
   background-image: url("https://i.gifer.com/OwtC.gif");
   background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
   transition: 1.5s all ease-in-out;
 }
@@ -38,6 +36,7 @@ h1 {
 
 p {
   color: orange;
+  margin: 10px;
 }
 
 .contenedor {
@@ -48,25 +47,73 @@ p {
 #parrafo {
   width: 100%;
   height: 100%;
-  perspective: 1000px; /* Establece la perspectiva del contenedor */
-}
-.caracteristicas {
-  height: 100%;
-  text-align: center;
+  perspective: 1000px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  transform-style: preserve-3d; /* Mantiene la perspectiva del texto */
-  transform: rotateX(
-    25deg
-  ); /* Rota el texto en el eje X para crear el efecto 3D */
+}
+
+.caracteristicas {
+  width: 90%;
+  height: 100%;
+  margin-top: 2%;
+  text-align: center;
+  display: grid;
+  grid-template-areas:
+    "a a b b b"
+    "c d d e e"; 
+  gap: 10px; 
+  row-gap: 10%;
+}
+
+.CaracteristicasGenerales::before{
+  content: 'General';
+  color: rgb(255, 255, 255);
+  font-size: 50px;
+}
+
+.homeworld::before{
+  content: 'Homeworld';
+  color: rgb(255, 255, 255);
+  font-size: 50px;
+}
+
+.vehicles::before{
+  content: 'Vehicles';
+  color: rgb(255, 255, 255);
+  font-size: 50px;
+}
+.starship::before{
+  content: 'Starship';
+  color: rgb(255, 255, 255);
+  font-size: 50px;
+}
+.films::before{
+  content: 'Films';
+  color: rgb(255, 255, 255);
+  font-size: 50px;
+}
+
+/* Asignación de áreas a las celdas */
+.CaracteristicasGenerales {
+  grid-area: a;
+}
+.homeworld{
+  grid-area: b;
+}
+.vehicles {
+  grid-area: c;
+}
+.starship {
+  text-align: center;
+  grid-area: d;
+}
+.films {
+  grid-area: e;
 }
 
 .caracteristicas p {
   font-size: xx-large;
-  margin: 0.95rem 0;
-  animation: scale 25s infinite;
+  /* animation: scale 25s infinite; */
 }
 
 /* .caracteristicas p:nth-child(1){animation-delay: 0;}
@@ -183,6 +230,15 @@ img {
   }
   .contenedor {
     flex-direction: column;
+  }
+
+  .caracteristicas {
+    grid-template-areas:
+    "a "
+    "b "
+    "c "
+    "d "
+    "e "; 
   }
 
   a:nth-child(1) {
