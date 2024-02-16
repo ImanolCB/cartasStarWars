@@ -31,7 +31,7 @@ $(document).ready(function () {
   $("a").click(function () {
     let personajeSeleccionado = $(this).text();
     console.log(personajeSeleccionado);
-    window.location.href = `informacion.html?parametro=${encodeURIComponent(personajeSeleccionado)}`;
+    window.location.href = `/html/informacion.html?parametro=${encodeURIComponent(personajeSeleccionado)}`;
   });
 
 });
